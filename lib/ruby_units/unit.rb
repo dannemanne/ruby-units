@@ -1492,8 +1492,13 @@ class Unit < Numeric
     # rational numbers.... -1/3, 1/5, 20/100
     rational  = %r{[+-]?\d+\/\d+}
     # complex numbers... -1.2+3i, +1.2-3.3i
-    complex   = %r{#{sci}{2,2}i}
-    anynumber = %r{(#{complex}|#{rational}|#{sci})?\s?([\D].*)?}
+    # complex   = %r{#{sci}{2,2}i}
+    # anynumber = %r{(?:(#{complex}|#{rational}|#{sci})\b)?\s?([\D].*)?}
+    
+    # NOTE! Removed parsing of complex numbers. Also removed 
+    # blankspace from regex to allow formats like '0.3cm'
+    # /Daniel Wiklund - 2012-12-13
+    anynumber = %r{(#{rational}|#{sci})?\s?([\D].*)?}
     num, unit = string.scan(anynumber).first
     
     return [case num
