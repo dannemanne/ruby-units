@@ -1504,14 +1504,14 @@ class Unit < Numeric
     return [case num
       when NilClass
         1
-      when complex
-        if num.respond_to?(:to_c)
-          num.to_c
-        else
-          #:nocov_19:
-          Complex(*num.scan(/(#{sci})(#{sci})i/).flatten.map {|n| n.to_i})
-          #:nocov_19:
-        end
+#      when complex
+#        if num.respond_to?(:to_c)
+#          num.to_c
+#        else
+#          #:nocov_19:
+#          Complex(*num.scan(/(#{sci})(#{sci})i/).flatten.map {|n| n.to_i})
+#          #:nocov_19:
+#        end
       when rational
         Rational(*num.split("/").map {|x| x.to_i})
       else
