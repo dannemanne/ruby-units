@@ -30,7 +30,7 @@ module RubyUnits
     attr_reader :separator
 
     # used to prevent values to be interpreted as complex numbers when parsing.
-    attr_reader :ignore_complex_when_parsing
+    attr_accessor :ignore_complex_when_parsing
 
     def initialize
       self.separator = true
