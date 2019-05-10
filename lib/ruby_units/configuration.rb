@@ -29,8 +29,12 @@ module RubyUnits
     # separators other than ' ' and '' may work, but you may encounter problems
     attr_reader :separator
 
+    # used to prevent values to be interpreted as complex numbers when parsing.
+    attr_reader :ignore_complex_when_parsing
+
     def initialize
       self.separator = true
+      self.ignore_complex_when_parsing = false
     end
 
     def separator=(value)

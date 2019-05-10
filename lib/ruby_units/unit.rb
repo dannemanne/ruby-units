@@ -311,7 +311,7 @@ module RubyUnits
       # rational numbers.... -1/3, 1/5, 20/100, -6 1/2, -6-1/2
       rational  = %r{\(?[+-]?(?:\d+[ -])?\d+\/\d+\)?}
       # complex numbers... -1.2+3i, +1.2-3.3i
-      complex   = RubyUnits.configuration.ignore_complex ? /(?!)/ : /#{sci}{2,2}i/
+      complex   = RubyUnits.configuration.ignore_complex_when_parsing ? /(?!)/ : /#{sci}{2,2}i/
       anynumber = /(?:(#{complex}|#{rational}|#{sci}))?\s?([^-\d\.].*)?/
 
       num, unit = string.scan(anynumber).first
