@@ -1,6 +1,5 @@
-class Unit < Numeric
-  # Pull the version number from the VERSION file
-  module Version
-    STRING = File.read(File.dirname(__FILE__) + "/../../VERSION")
+module RubyUnits
+  class Unit < Numeric
+    VERSION = '2.3.1'.freeze
   end
 end

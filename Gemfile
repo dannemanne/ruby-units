@@ -1,14 +1,17 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
 group :development do
-  gem 'bundler', '~> 1.0'
-  gem 'rcov', :platforms => :mri_18
-  gem 'simplecov', :require => false, :platforms => :mri_19
-  gem 'simplecov-html', :platforms => :mri_19
-  gem 'jeweler'
-  gem 'rspec', '~>2.5'
-  gem 'autotest', :platforms => [:mri_18, :mri_19]
-  gem 'autotest-growl', :platforms => [:mri_18, :mri_19]
-  gem 'autotest-fsevent', :platforms => [:mri_18, :mri_19]
+  gem 'pry-byebug', platform: :mri
+  gem 'ruby-maven', platform: :jruby
+  gem 'ruby-prof', platform: :mri
 end
 
+# This is a minimal set of Gems required to build on travis
+group :test do
+  gem 'bundler'
+  gem 'rake'
+  gem 'rspec'
+  gem 'simplecov'
+end
+
+gemspec
